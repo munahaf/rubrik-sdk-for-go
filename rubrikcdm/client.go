@@ -141,6 +141,7 @@ func (c *Credentials) commonAPI(callType, apiVersion, apiEndpoint string, config
 		return nil, errors.New("The API Endpoint should not end with '/' (ex. /cluster/me)")
 	}
 
+	// Setting InsecureSkipVerify to true will disable certificate verification.
 	tr := &http.Transport{
 		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
 	}
